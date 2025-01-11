@@ -1,21 +1,21 @@
 import "./App.css"
 import React from 'react'
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
-import Form from "./components/Form";
+import { Route, Routes } from "react-router-dom";
+import Homepage from "./components/Homepage";
+import Products from "./components/Products";
+import NotFound from "./components/NotFound";
+import Details from "./components/Details";
 
 
 function App() {
-  const handleClick = () => {
-    alert("click btn 2")
-  }
   return (
     <div>
-      <Header name = "Eng Dave" greeting = "Good evening!" handleClick = {handleClick} />
-      <Form />
-      <Main />
-      <Footer />
+      <Routes>
+        <Route path="/" element = {<Homepage />}/>
+        <Route path="/products" element = {<Products />}/>
+        <Route path="/products/:id" element = {<Details />}/>
+        <Route path="*" element = {<NotFound />}/>
+      </Routes>
     </div>
   );
 }
